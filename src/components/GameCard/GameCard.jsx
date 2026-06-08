@@ -11,7 +11,7 @@ export default function GameCard({ card, flipped }) {
           <div className="card-image-wrap">
             <img
               src={card.frontImage}
-              alt={card.catLabel}
+              alt={card.id}
               className="card-bg"
             />
           </div>

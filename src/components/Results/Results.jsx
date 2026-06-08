@@ -65,7 +65,7 @@ export default function Results({ score, correct, total, onRestart }) {
 
             <div className="results-links">
               <a
-                href="https://es.wikipedia.org/wiki/Hydrochoerus_hydrochaeris"
+                href="https://drive.google.com/drive/folders/1i3Z0NDrRRh7u_aYblR8wratIh2nxzSB0?usp=sharing"
                 target="_blank"
                 rel="noreferrer"
                 className="results-link"
@@ -73,7 +73,7 @@ export default function Results({ score, correct, total, onRestart }) {
                 📖 Artículo científico
               </a>
               <a
-                href="https://open.spotify.com/search/chig%C3%BCiro"
+                href="https://open.spotify.com/show/033pNyXmdEWzY8dcWPTQsN?si=z6U4tpT_TOmvkSMpIaYPvA"
                 target="_blank"
                 rel="noreferrer"
                 className="results-link"
