@@ -1,0 +1,222 @@
+/* Results.css */
+
+.results-wrapper {
+  background-color: #f0ece3;
+  min-height: 100vh;
+  padding: 32px 24px 48px;
+  box-sizing: border-box;
+}
+
+.results-heading {
+  text-align: center;
+
+  font-size: 3rem;
+  font-weight: 900;
+
+  color: #1a3a2a;
+
+  text-transform: uppercase;
+  letter-spacing: 2px;
+
+  text-shadow:
+    0 2px 0 #ffffff,
+    0 4px 12px rgba(0,0,0,.15);
+
+  margin-bottom: 30px;
+}
+
+/* ── Grid de dos columnas ── */
+.results-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  max-width: 1100px;
+  margin: 0 auto;
+  align-items: start;
+}
+
+/* ── Columna izquierda ── */
+.results-left {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* ── Columna derecha ── */
+.results-right {
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Anular el padding/bg del wrapper de Comments para que encaje en la grid ── */
+.results-right .comments-wrapper {
+  background: transparent;
+  padding: 0;
+}
+
+/* ── Card principal ── */
+.results-card {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 32px 28px 28px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  text-align: center;
+}
+
+.results-emoji {
+  font-size: 2.8rem;
+  margin-bottom: 12px;
+}
+
+.results-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #1a1a2e;
+  margin: 0 0 16px;
+}
+
+.results-pct {
+  font-size: 4rem;
+  font-weight: 800;
+  color: var(--oro, #c9932a);
+  line-height: 1;
+  margin-bottom: 6px;
+}
+
+.results-pct span {
+  font-size: 2.5rem;
+}
+
+.results-sub {
+  font-size: 0.9rem;
+  color: #666;
+  margin: 0 0 16px;
+}
+
+.results-divider {
+  border: none;
+  border-top: 2px solid var(--oro, #c9932a);
+  width: 60px;
+  margin: 0 auto 16px;
+}
+
+.results-message {
+  font-size: 0.92rem;
+  color: #444;
+  line-height: 1.6;
+  margin: 0 auto 24px;
+}
+
+/* ── Botón certificado ── */
+.btn-certificate {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 4px 0 20px;
+  padding: 13px 28px;
+  background: var(--oro, #c9932a);
+  color: #fff;
+  border: none;
+  border-radius: 999px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: inherit;
+  box-shadow: 0 4px 14px rgba(201, 147, 42, 0.35);
+  transition: background 0.2s, transform 0.1s, box-shadow 0.2s;
+}
+
+.btn-certificate:hover {
+  background: #b07d1e;
+  box-shadow: 0 6px 18px rgba(201, 147, 42, 0.45);
+}
+
+.btn-certificate:active {
+  transform: scale(0.97);
+}
+
+/* ── Botones de recursos ── */
+.results-links {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.results-link {
+  display: inline-block;
+  padding: 10px 20px;
+  border: 2px solid var(--verde-oscuro, #1e4d2b);
+  border-radius: 999px;
+  color: var(--verde-oscuro, #1e4d2b);
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s;
+  font-family: inherit;
+}
+
+.results-link:hover {
+  background: var(--verde-oscuro, #1e4d2b);
+  color: #fff;
+}
+
+/* ── Card resumen ── */
+.results-summary-card {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 22px 28px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  text-align: center;
+}
+
+.summary-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #1a1a2e;
+  margin: 0 0 14px;
+}
+
+.summary-badges {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.badge {
+  display: inline-block;
+  padding: 6px 16px;
+  border-radius: 999px;
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+
+.badge-correct {
+  background: #e6f4ed;
+  color: #1e7a3e;
+  border: 1.5px solid #a8d5b5;
+}
+
+.badge-wrong {
+  background: #fdecea;
+  color: #c0392b;
+  border: 1.5px solid #f5b7b1;
+}
+
+.badge-score {
+  background: #fef9e7;
+  color: #9a6f00;
+  border: 1.5px solid #f9e4a0;
+}
+
+/* ── Responsive: una columna en móvil ── */
+@media (max-width: 768px) {
+  .results-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .results-wrapper {
+    padding: 20px 16px 40px;
+  }
+}

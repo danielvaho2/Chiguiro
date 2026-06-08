@@ -1,0 +1,97 @@
+/* =========================
+   RESET BÁSICO
+========================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* =========================
+   FUENTE GLOBAL
+========================= */
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  
+  color: #1a1a1a;
+}
+
+/* =========================
+   CONTENEDOR PRINCIPAL
+========================= */
+
+main {
+  min-height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+gap: 1.5rem;
+  padding: 30px 16px;
+}
+
+/* =========================
+   CONTENEDOR "GIGANTE"
+========================= */
+
+.app-container {
+  width: 100%;
+  max-width: 1200px;
+
+  background: white;
+
+  border-radius: 24px;
+
+  padding: 40px;
+
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+/* =========================
+   HEADER / HUD FIX
+========================= */
+
+.hud {
+  width: 100%;
+}
+
+/* =========================
+   CARTA CENTRADA
+========================= */
+
+.card-area {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* =========================
+   BOTONES GENERALES
+========================= */
+
+button {
+  font-family: inherit;
+}
+
+.feedback-button{
+    display: flex;
+    gap: 2rem;
+
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 768px) {
+  .app-container {
+    padding: 20px;
+    border-radius: 16px;
+  }
+}

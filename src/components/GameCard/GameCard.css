@@ -1,0 +1,154 @@
+/* GameCard.css */
+
+.card-container {
+  width: 300px;
+  height: 400px;
+  margin: 0 auto;
+  perspective: 1800px;
+}
+
+.card-inner {
+display: flex;
+justify-content: center;
+align-items: center;
+
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.9s cubic-bezier(.4,.2,.2,1);
+  transform-origin: center center;
+  will-change: transform;
+}
+
+.card-inner.flipped {
+  transform: rotateY(180deg);
+}
+
+/* ─── Cara base ─── */
+.card-face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 24px;
+  overflow: hidden;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  box-shadow:
+    0 25px 50px rgba(0,0,0,.18),
+    0 8px 18px rgba(0,0,0,.08);
+  border: 1px solid rgba(255,255,255,.4);
+
+  /* flex column: imagen arriba, texto abajo */
+  display: flex;
+  flex-direction: column;
+}
+
+/* brillo superior */
+.card-face::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(255,255,255,.35),
+    transparent 25%,
+    transparent 70%,
+    rgba(255,255,255,.15)
+  );
+  z-index: 3;
+  pointer-events: none;
+}
+
+/* ─── Contenedor de imagen ─── */
+.card-image-wrap {
+  flex: 1;   
+      /* ocupa todo el espacio disponible */
+  min-height: 0;    /* permite que flex reduzca correctamente */
+  overflow: hidden;
+  background: #f0f0f0; /* relleno si la imagen tiene bordes */
+}
+
+.card-bg {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;      /* imagen completa, sin recorte */
+  object-position: center;
+  display: block;
+}
+
+/* ─── Texto ─── */
+.card-content {
+  flex-shrink: 0;   /* nunca se comprime */
+  padding: 20px 24px;
+  border-top: 1px solid rgba(0,0,0,.08);
+}
+
+.card-content h2 {
+  margin: 0 0 10px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #1a3a2a;
+}
+
+.card-content p {
+  margin: 0;
+  color: #444;
+  line-height: 1.6;
+  font-size: .95rem;
+}
+
+/* ─── Frente ─── */
+.card-front {
+  background: linear-gradient(180deg, #ffffff 0%, #fafafa 100%);
+}
+
+/* ─── Reverso ─── */
+.card-back {
+  background: linear-gradient(180deg, #ffffff 0%, #f8f8f8 100%);
+  transform: rotateY(180deg);
+}
+
+.card-back .card-image-wrap {
+  background: #f4f0e6;
+}
+
+.card-back .card-content {
+  background: linear-gradient(180deg, #f4f0e6 0%, #ffffff 100%);
+}
+
+.card-back h2 {
+  color: #2d6a4f;
+}
+
+.card-back p {
+  font-size: .92rem;
+}
+
+/* ─── Hover ─── */
+.card-container:hover .card-face {
+  box-shadow:
+    0 35px 60px rgba(0,0,0,.20),
+    0 12px 22px rgba(0,0,0,.10);
+}
+
+/* ─── Responsive ─── */
+@media (max-width: 500px) {
+  .card-container {
+    width: 92vw;
+    height: 70vh;
+    max-height: 600px;
+  }
+
+  .card-content {
+    padding: 16px 18px;
+  }
+
+  .card-content h2 {
+    font-size: 1rem;
+  }
+
+  .card-content p {
+    font-size: .9rem;
+  }
+}
