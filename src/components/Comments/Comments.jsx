@@ -1,18 +1,57 @@
-// components/Comments/Comments.jsx
-
 import { useState } from "react";
 import "./Comments.css";
 
 export default function Comments({ onRestart }) {
-  const [name, setName] = useState("");
-  const [text, setText] = useState("");
+  const [form, setForm] = useState({
+    name: "",
+    email: "",
+    contact: "",
+    comment: "",
+  });
+
   const [comments, setComments] = useState([]);
 
-  const submit = () => {
-    if (!text.trim()) return;
-    setComments([{ id: Date.now(), name, text }, ...comments]);
-    setName("");
-    setText("");
+  const phoneNumber = "573506931227";
+
+  const handleChange = (e) => {
+    setForm({
+      ...form,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault(); // evita recarga del form
+
+    const newComment = {
+      id: Date.now(),
+      ...form,
+    };
+
+    setComments((prev) => [newComment, ...prev]);
+
+   const message = `
+¡Hola, Territorio Vivo! 
+
+Quiero conocer más sobre el chigüiro y seguir explorando el mundo de la fauna silvestre.
+
+Nombre: ${form.name}
+Correo: ${form.email}
+Contacto: ${form.contact}
+Comentario: ${form.comment}
+`;
+
+
+    const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+
+    window.open(url, "_blank");
+
+    setForm({
+      name: "",
+      email: "",
+      contact: "",
+      comment: "",
+    });
   };
 
   return (
@@ -20,40 +59,61 @@ export default function Comments({ onRestart }) {
       <div className="comments-card">
         <div className="comments-header">
           <span className="comments-icon">💬</span>
-          <h2>Deja tu comentario</h2>
+          <h2>Deja tu mensaje</h2>
         </div>
-        <p className="comments-subtitle">
-          ¿Qué te pareció el juego? ¿Aprendiste algo nuevo sobre el chigüiro?
-          ¿Tienes alguna duda? ¡Cuéntanos!
-        </p>
 
-        <input
-          className="comments-input"
-          type="text"
-          placeholder="Tu nombre (opcional)"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-        />
+        {/* FORM REAL */}
+        <form onSubmit={handleSubmit} className="comments-form">
+          <input
+            className="comments-input"
+            name="name"
+            placeholder="Nombre"
+            value={form.name}
+            onChange={handleChange}
+            required
+          />
 
-        <textarea
-          className="comments-textarea"
-          placeholder="Escribe aquí tu opinión, pregunta o curiosidad..."
-          value={text}
-          onChange={(e) => setText(e.target.value)}
-        />
+          <input
+            className="comments-input"
+            name="email"
+            type="email"
+            placeholder="Correo"
+            value={form.email}
+            onChange={handleChange}
+            required
+          />
 
-        <div className="comments-actions">
-          <button className="btn-send" onClick={submit}>
-            Enviar comentario 🐾
-          </button>
-        </div>
+          <input
+            className="comments-input"
+            name="contact"
+            placeholder="Contacto (WhatsApp o teléfono)"
+            value={form.contact}
+            onChange={handleChange}
+            required
+          />
+
+          <textarea
+            className="comments-textarea"
+            name="comment"
+            placeholder="Escribe tu comentario..."
+            value={form.comment}
+            onChange={handleChange}
+            required
+          />
+
+          <div className="comments-actions">
+            <button className="btn-send" type="submit">
+              Enviar mensaje 🐾
+            </button>
+          </div>
+        </form>
 
         {comments.length > 0 && (
           <div className="comments-list">
             {comments.map((c) => (
               <div key={c.id} className="comment-item">
-                {c.name && <span className="comment-name">{c.name}</span>}
-                <p>{c.text}</p>
+                <strong>{c.name}</strong>
+                <p>{c.comment}</p>
               </div>
             ))}
           </div>

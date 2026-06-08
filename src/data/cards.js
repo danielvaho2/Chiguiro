@@ -468,7 +468,7 @@ export const CARDS = [
       "Tiene más de 30 nombres distintos según la región y la comunidad.",
 
     wrong: [
-      "Solo tiene dos nombres reconocidos.",
+      "Dos nombres oficiales.",
       "Tiene exactamente cinco nombres oficiales."
     ]
   },
@@ -487,7 +487,7 @@ export const CARDS = [
 
     wrong: [
       "El color real de su pelaje.",
-      "Su tamaño verdadero."
+      "Su alimentaciión y personalidad."
     ]
   },
   {
@@ -504,7 +504,7 @@ export const CARDS = [
       "En objetos, peluches, stickers y productos decorativos.",
 
     wrong: [
-      "En monedas oficiales de todos los países de Suramérica.",
+      "En parques de diversiones.",
       "En señales de tránsito relacionadas con fauna."
     ]
   },
